@@ -1,0 +1,26 @@
+{
+  "short_name": "Memory-bender",
+  "name": "Memory-bender",
+  "description": "A memory-based card game, featuring characters from The Last Airbender and Legend of Korra.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "background_color": "#790995",
+  "display": "standalone",
+  "theme_color": "#ce8fd1"
+}

@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'Laila';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    /* Super Modern Browsers */ url('../../assets/fonts/laila-regular.woff2')
+      format('woff2'),
+    /* Modern Browsers */ url('../../assets/fonts/laila-regular.woff')
+      format('woff'),
+    /* Safari, Android, iOS */ url('../../assets/fonts/laila-regular.ttf')
+      format('truetype');
+}
+
+@font-face {
+  font-family: 'Laila';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    /* Super Modern Browsers */ url('../../assets/fonts/laila-700.woff2')
+      format('woff2'),
+    /* Modern Browsers */ url('../../assets/fonts/laila-700.woff')
+      format('woff'),
+    /* Safari, Android, iOS */ url('../../assets/fonts/laila-700.ttf')
+      format('truetype');
+}

@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+
+body {
+  @include font-properties(0.08rem, 0.12rem);
+  font-family: $base-fonts;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.c-app-logo {
+  font-size: 2.5rem;
+}

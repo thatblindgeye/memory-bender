@@ -1,0 +1,52 @@
+{
+  "name": "memory-bender",
+  "homepage": "http://thatblindgeye.github.io/memory-bender",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.8.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "ie >= 8",
+      "edge >= 15",
+      "ff >= 45",
+      "chrome >= 45",
+      "safari >= 7",
+      "opera >= 23",
+      "ios >= 7",
+      "android >= 4",
+      "bb >= 10"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "sass": "^1.32.11"
+  }
+}
