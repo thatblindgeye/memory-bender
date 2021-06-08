@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header/Header';
+import Gameboard from './components/Gameboard/Gameboard';
 import githubDark from './assets/images/logos/GitHub-White-Mark-32px.png';
 import githubLight from './assets/images/logos/GitHub-Black-Mark-32px.png';
 
@@ -37,7 +38,9 @@ export default function App() {
   return (
     <>
       <Header theme={theme} toggleEvent={handleThemeToggle} />
-      <main className='l-main'></main>
+      <main aria-live='polite' aria-atomic='true'>
+        <Gameboard />
+      </main>
       <footer className='l-footer'>
         <a href='https://github.com/thatblindgeye' className='c-link'>
           <img src={githubLogo} alt='' className='c-link__image' />
