@@ -2,8 +2,8 @@ const importImages = (context) => {
   return context.keys().map(context);
 };
 
-const importedImageArray = importImages(
+const importedImages = importImages(
   require.context('../assets/images/cards/', false, /\.jpe?g$/)
 );
 
-export default importedImageArray;
+export default importedImages;
