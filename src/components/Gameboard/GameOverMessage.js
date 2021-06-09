@@ -7,7 +7,7 @@ export default function GameOverMessage({
 }) {
   const win = {
     header: 'Congratulations',
-    info: 'You have restored balance and regained your honor. Click the button below to truly prove your mastery over memory-bending.',
+    info: 'You have restored balance to the world, or at least beat the game. Click the button below to truly prove your mastery over memory-bending.',
   };
 
   const loss = {

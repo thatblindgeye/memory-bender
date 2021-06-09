@@ -10,8 +10,10 @@ Credit for all of the images used in this project goes to [The Avatar Wiki](http
 
 ### Features
 
+- Built using React functional components and hooks.
+- Theme toggle to play either with a dark theme (default) or a light theme.
+- Keeps track of your personal high score for each session (resets when you visit the page again).
+
 ### How-To
 
-The goal of the game is to remember which cards you have already clicked on, and to click on the cards that you have not yet clicked.
-
-If your memory fails you, the game will start over and your score will be reset. If you are truly the master of memory, however, then you will be able to easily win this game, and perhaps restore some honor from any previous failed attempts at winning.
+The goal of the game is to remember which cards you have already clicked on, and to click on the cards that you have not yet clicked. Simple in concept, but is it as simple to win the game?

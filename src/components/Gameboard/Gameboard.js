@@ -33,7 +33,7 @@ export default function Gameboard() {
   const scoreboardContainer = useRef(null);
   useEffect(() => {
     const scoreboardOffset = scoreboardContainer.current.offsetTop;
-    document.documentElement.scrollTop = scoreboardOffset;
+    document.documentElement.scrollTo(0, scoreboardOffset);
   }, [cards]);
 
   /* Bring focus back to the top of the gameboard after clicking a card.
@@ -41,10 +41,9 @@ export default function Gameboard() {
    * the previously clicked card's new position, it might be annoying to
    * navigate with the kayboard otherwise.
    */
-  const gameboardContainer = useRef(null);
   useEffect(() => {
     if (currentScore > 0) {
-      gameboardContainer.current.focus();
+      scoreboardContainer.current.focus();
     }
   }, [currentScore]);
 
@@ -70,17 +69,12 @@ export default function Gameboard() {
     setCurrentScore(currentScore + 1);
   };
 
-  const handleCardClick = (e) => {
-    const clickedCardID = Number(e.currentTarget.id);
-    const clickedCardIndex = cards.findIndex(
-      (card) => card.id === clickedCardID
-    );
-
-    if (cards[clickedCardIndex].clicked) {
+  const checkCardStatus = (id, index) => {
+    if (cards[index].clicked) {
       setGameOver(true);
     } else {
       const cardsCopyClick = cards.map((card) => {
-        if (card.id === clickedCardID) {
+        if (card.id === id) {
           return { ...card, clicked: true };
         }
         return { ...card };
@@ -89,6 +83,15 @@ export default function Gameboard() {
       incrementScores();
       setCards(shuffleCards(cardsCopyClick));
     }
+  };
+
+  const handleCardClick = (e) => {
+    const clickedCardID = Number(e.currentTarget.id);
+    const clickedCardIndex = cards.findIndex(
+      (card) => card.id === clickedCardID
+    );
+
+    checkCardStatus(clickedCardID, clickedCardIndex);
   };
 
   const handleResetGame = () => {
@@ -108,15 +111,16 @@ export default function Gameboard() {
       clickEvent={handleResetGame}
     />
   ) : (
-    <div className='l-gameboard' ref={gameboardContainer} tabIndex='-1'>
+    <div className='l-gameboard'>
       <div className='c-instructions'>
         <h2>Instructions</h2>
         <p>
           Each round you must click a character card that you have not yet
-          clicked. The cards will be shuffled after every correct guess.
+          clicked. After every correct guess, the cards will be shuffled and the
+          page will scroll to the top of the gameboard.
         </p>
       </div>
-      <div className='c-scoreboard' ref={scoreboardContainer}>
+      <div className='l-scoreboard' ref={scoreboardContainer} tabIndex='-1'>
         <Scoreboard currentScore={currentScore} highScore={highScore} />
       </div>
       <div className='l-card-container'>
