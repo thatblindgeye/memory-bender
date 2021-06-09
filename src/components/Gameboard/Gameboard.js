@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Scoreboard from '../Scoreboard/Scoreboard';
 import Card from '../Card/Card';
+import GameOverMessage from './GameOverMessage';
 import formatName from '../../scripts/format-names';
 import importedImages from '../../scripts/import-images';
 
@@ -10,6 +11,7 @@ export default function Gameboard() {
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
+  // create and shuffle cards array before setting the cards state
   useEffect(() => {
     let temporaryCards = [];
 
@@ -27,6 +29,12 @@ export default function Gameboard() {
     setCards(shuffleCards(temporaryCards));
   }, []);
 
+  // scroll to the top of the scoreboard when the cards state is updated
+  useEffect(() => {
+    const scoreboardOffset = document.querySelector('.c-scoreboard').offsetTop;
+    document.documentElement.scrollTop = scoreboardOffset;
+  }, [cards]);
+
   const shuffleCards = (previousCards) => {
     const cardsCopy = previousCards.map((card) => ({ ...card }));
     let currentIndex = cardsCopy.length - 1;
@@ -42,7 +50,36 @@ export default function Gameboard() {
     return cardsCopy;
   };
 
-  return (
+  const handleCardClick = (e) => {
+    const clickedID = Number(e.currentTarget.id);
+    const clickedIndex = cards.findIndex((card) => card.id === clickedID);
+
+    if (cards[clickedIndex].clicked) {
+      setGameOver(true);
+    } else {
+      const cardsCopy = cards.map((card) => {
+        if (card.id === clickedID) {
+          return { ...card, clicked: true };
+        }
+        return { ...card };
+      });
+
+      setCurrentScore(currentScore + 1);
+      setCards(shuffleCards(cardsCopy));
+    }
+  };
+
+  const handleResetGame = () => {
+    const cardsCopy = cards.map((card) => {
+      return { ...card, clicked: false };
+    });
+
+    setCards(shuffleCards(cardsCopy));
+    setCurrentScore(0);
+    setGameOver(false);
+  };
+
+  return !gameOver ? (
     <div className='l-gameboard'>
       <div className='c-instructions'>
         <h2>Instructions</h2>
@@ -60,9 +97,23 @@ export default function Gameboard() {
       <Scoreboard currentScore={currentScore} highScore={highScore} />
       <div className='l-card-container'>
         {cards.map((card) => {
-          return <Card key={card.id} url={card.url} name={card.name} />;
+          return (
+            <Card
+              key={card.id}
+              id={card.id}
+              url={card.url}
+              name={card.name}
+              clickEvent={handleCardClick}
+            />
+          );
         })}
       </div>
     </div>
+  ) : (
+    <GameOverMessage
+      currentScore={currentScore}
+      maxScore={cards.length}
+      clickEvent={handleResetGame}
+    />
   );
 }
