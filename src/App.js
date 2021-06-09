@@ -42,6 +42,15 @@ export default function App() {
         <Gameboard />
       </main>
       <footer className='l-footer'>
+        <div>
+          Credit for the images used in this project goes to{' '}
+          <a
+            href='https://avatar.fandom.com/wiki/Avatar_Wiki'
+            className='c-link'
+          >
+            The Avatar Wiki
+          </a>
+        </div>
         <a href='https://github.com/thatblindgeye' className='c-link'>
           <img src={githubLogo} alt='' className='c-link__image' />
           @thatblindgeye on GitHub

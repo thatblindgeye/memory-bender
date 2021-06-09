@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Scoreboard from '../Scoreboard/Scoreboard';
 import Card from '../Card/Card';
 import GameOverMessage from './GameOverMessage';
@@ -11,7 +11,7 @@ export default function Gameboard() {
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
-  // create and shuffle cards array before setting the cards state
+  // Create and shuffle cards array before setting the cards state on mount.
   useEffect(() => {
     let temporaryCards = [];
 
@@ -29,72 +29,96 @@ export default function Gameboard() {
     setCards(shuffleCards(temporaryCards));
   }, []);
 
-  // scroll to the top of the scoreboard when the cards state is updated
+  // Scroll to the scoreboard when the cards state is updated.
+  const scoreboardContainer = useRef(null);
   useEffect(() => {
-    const scoreboardOffset = document.querySelector('.c-scoreboard').offsetTop;
+    const scoreboardOffset = scoreboardContainer.current.offsetTop;
     document.documentElement.scrollTop = scoreboardOffset;
   }, [cards]);
 
+  /* Bring focus back to the top of the gameboard after clicking a card.
+   * Since the cards get shuffled on each click and the tabbing picks up in
+   * the previously clicked card's new position, it might be annoying to
+   * navigate with the kayboard otherwise.
+   */
+  const gameboardContainer = useRef(null);
+  useEffect(() => {
+    if (currentScore > 0) {
+      gameboardContainer.current.focus();
+    }
+  }, [currentScore]);
+
   const shuffleCards = (previousCards) => {
-    const cardsCopy = previousCards.map((card) => ({ ...card }));
-    let currentIndex = cardsCopy.length - 1;
+    const cardsCopyShuffle = previousCards.map((card) => ({ ...card }));
+    let currentIndex = cardsCopyShuffle.length - 1;
 
     for (currentIndex; currentIndex > 0; currentIndex--) {
       const randomIndex = Math.floor(Math.random() * currentIndex);
-      const temporaryCard = cardsCopy[currentIndex];
+      const temporaryCard = cardsCopyShuffle[currentIndex];
 
-      cardsCopy[currentIndex] = cardsCopy[randomIndex];
-      cardsCopy[randomIndex] = temporaryCard;
+      cardsCopyShuffle[currentIndex] = cardsCopyShuffle[randomIndex];
+      cardsCopyShuffle[randomIndex] = temporaryCard;
     }
 
-    return cardsCopy;
+    return cardsCopyShuffle;
+  };
+
+  const incrementScores = () => {
+    if (highScore === currentScore) {
+      setHighScore(highScore + 1);
+    }
+    setCurrentScore(currentScore + 1);
   };
 
   const handleCardClick = (e) => {
-    const clickedID = Number(e.currentTarget.id);
-    const clickedIndex = cards.findIndex((card) => card.id === clickedID);
+    const clickedCardID = Number(e.currentTarget.id);
+    const clickedCardIndex = cards.findIndex(
+      (card) => card.id === clickedCardID
+    );
 
-    if (cards[clickedIndex].clicked) {
+    if (cards[clickedCardIndex].clicked) {
       setGameOver(true);
     } else {
-      const cardsCopy = cards.map((card) => {
-        if (card.id === clickedID) {
+      const cardsCopyClick = cards.map((card) => {
+        if (card.id === clickedCardID) {
           return { ...card, clicked: true };
         }
         return { ...card };
       });
 
-      setCurrentScore(currentScore + 1);
-      setCards(shuffleCards(cardsCopy));
+      incrementScores();
+      setCards(shuffleCards(cardsCopyClick));
     }
   };
 
   const handleResetGame = () => {
-    const cardsCopy = cards.map((card) => {
+    const cardsCopyReset = cards.map((card) => {
       return { ...card, clicked: false };
     });
 
-    setCards(shuffleCards(cardsCopy));
+    setCards(shuffleCards(cardsCopyReset));
     setCurrentScore(0);
     setGameOver(false);
   };
 
-  return !gameOver ? (
-    <div className='l-gameboard'>
+  return gameOver ? (
+    <GameOverMessage
+      currentScore={currentScore}
+      maxScore={cards.length}
+      clickEvent={handleResetGame}
+    />
+  ) : (
+    <div className='l-gameboard' ref={gameboardContainer} tabIndex='-1'>
       <div className='c-instructions'>
         <h2>Instructions</h2>
         <p>
           Each round you must click a character card that you have not yet
-          clicked this game. The cards will be shuffled after every correct
-          guess.
-        </p>
-        <p>
-          If you make it to the end, you will prove you are a memory-bending
-          master. If you guess incorrectly even once, you shall never regain
-          your honor.
+          clicked. The cards will be shuffled after every correct guess.
         </p>
       </div>
-      <Scoreboard currentScore={currentScore} highScore={highScore} />
+      <div className='c-scoreboard' ref={scoreboardContainer}>
+        <Scoreboard currentScore={currentScore} highScore={highScore} />
+      </div>
       <div className='l-card-container'>
         {cards.map((card) => {
           return (
@@ -109,11 +133,5 @@ export default function Gameboard() {
         })}
       </div>
     </div>
-  ) : (
-    <GameOverMessage
-      currentScore={currentScore}
-      maxScore={cards.length}
-      clickEvent={handleResetGame}
-    />
   );
 }
