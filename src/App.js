@@ -38,9 +38,7 @@ export default function App() {
   return (
     <>
       <Header theme={theme} toggleEvent={handleThemeToggle} />
-      <main aria-live='polite'>
-        <Gameboard />
-      </main>
+      <Gameboard />
       <footer className='l-footer'>
         <div className='c-footer__credits'>
           Credit for the images used in this project goes to{' '}

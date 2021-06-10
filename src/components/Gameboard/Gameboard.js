@@ -103,42 +103,45 @@ export default function Gameboard() {
     setGameOver(false);
   };
 
-  return gameOver ? (
-    <GameOverMessage
-      currentScore={currentScore}
-      maxScore={cards.length}
-      clickEvent={handleResetGame}
-    />
-  ) : (
-    <div className='l-gameboard'>
-      <div className='c-instructions'>
-        <h2 className='c-instructions__header'>Instructions</h2>
-        <p className='c-instructions__info'>
-          Each round you must click a character card that you have not yet
-          clicked. After every correct guess, the cards will be shuffled and the
-          page will scroll to the top of the gameboard.
-        </p>
+  return (
+    <main>
+      <div className='c-game-message' aria-live='polite'>
+        {gameOver ? (
+          <GameOverMessage
+            currentScore={currentScore}
+            maxScore={cards.length}
+            clickEvent={handleResetGame}
+          />
+        ) : null}
       </div>
-      <div
-        className='l-scoreboard-container'
-        ref={scoreboardContainer}
-        tabIndex='-1'
-      >
-        <Scoreboard currentScore={currentScore} highScore={highScore} />
-      </div>
-      <div className='l-card-container' ref={cardsContainer}>
-        {cards.map((card) => {
-          return (
-            <Card
-              key={card.id}
-              id={card.id}
-              url={card.url}
-              name={card.name}
-              clickEvent={handleCardClick}
-            />
-          );
-        })}
-      </div>
-    </div>
+      {!gameOver ? (
+        <div className='l-gameboard'>
+          <div className='c-instructions'>
+            <h2 className='c-instructions__header'>Instructions</h2>
+            <p className='c-instructions__info'>
+              Each round you must click a character card that you have not yet
+              clicked. After every correct guess, the cards will be shuffled and
+              the page will scroll to the top of the gameboard.
+            </p>
+          </div>
+          <div className='l-scoreboard-container' ref={scoreboardContainer}>
+            <Scoreboard currentScore={currentScore} highScore={highScore} />
+          </div>
+          <div className='l-card-container' ref={cardsContainer}>
+            {cards.map((card) => {
+              return (
+                <Card
+                  key={card.id}
+                  id={card.id}
+                  url={card.url}
+                  name={card.name}
+                  clickEvent={handleCardClick}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
+    </main>
   );
 }
