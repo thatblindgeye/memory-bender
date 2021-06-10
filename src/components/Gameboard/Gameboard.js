@@ -123,7 +123,7 @@ export default function Gameboard() {
       >
         <Scoreboard currentScore={currentScore} highScore={highScore} />
       </div>
-      <div className='l-card-container'>
+      <div className='l-card-container' aria-atomic='true'>
         {cards.map((card) => {
           return (
             <Card
