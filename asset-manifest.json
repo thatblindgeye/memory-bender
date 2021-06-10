@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/memory-bender/static/css/main.553b987b.chunk.css",
-    "main.js": "/memory-bender/static/js/main.978c1860.chunk.js",
-    "main.js.map": "/memory-bender/static/js/main.978c1860.chunk.js.map",
+    "main.js": "/memory-bender/static/js/main.19f2abab.chunk.js",
+    "main.js.map": "/memory-bender/static/js/main.19f2abab.chunk.js.map",
     "runtime-main.js": "/memory-bender/static/js/runtime-main.da9c626c.js",
     "runtime-main.js.map": "/memory-bender/static/js/runtime-main.da9c626c.js.map",
     "static/js/2.320de143.chunk.js": "/memory-bender/static/js/2.320de143.chunk.js",
@@ -42,6 +42,6 @@
     "static/js/runtime-main.da9c626c.js",
     "static/js/2.320de143.chunk.js",
     "static/css/main.553b987b.chunk.css",
-    "static/js/main.978c1860.chunk.js"
+    "static/js/main.19f2abab.chunk.js"
   ]
 }
