@@ -61,6 +61,7 @@ body {
   &__credits,
   &__links {
     font-size: 0.9rem;
+    text-align: center;
 
     @include breakpoint-at-least(medium) {
       font-size: 1.1rem;

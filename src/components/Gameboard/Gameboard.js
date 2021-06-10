@@ -29,20 +29,16 @@ export default function Gameboard() {
     setCards(shuffleCards(temporaryCards));
   }, []);
 
-  // Scroll to the scoreboard when the cards state is updated.
-  const scoreboardContainer = useRef(null);
-  useEffect(() => {
-    const scoreboardOffset = scoreboardContainer.current.offsetTop;
-    document.documentElement.scrollTo(0, scoreboardOffset);
-  }, [cards]);
-
   /* Bring focus back to the top of the gameboard after clicking a card.
    * Since the cards get shuffled on each click and the tabbing picks up in
    * the previously clicked card's new position, it might be annoying to
    * navigate with the kayboard otherwise.
    */
+  const scoreboardContainer = useRef(null);
   useEffect(() => {
     if (currentScore > 0) {
+      const scoreboardOffset = scoreboardContainer.current.offsetTop;
+      document.documentElement.scrollTo(0, scoreboardOffset);
       scoreboardContainer.current.focus();
     }
   }, [currentScore]);
@@ -120,7 +116,11 @@ export default function Gameboard() {
           page will scroll to the top of the gameboard.
         </p>
       </div>
-      <div className='l-scoreboard' ref={scoreboardContainer} tabIndex='-1'>
+      <div
+        className='l-scoreboard-container'
+        ref={scoreboardContainer}
+        tabIndex='-1'
+      >
         <Scoreboard currentScore={currentScore} highScore={highScore} />
       </div>
       <div className='l-card-container'>

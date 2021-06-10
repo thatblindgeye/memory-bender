@@ -19,13 +19,12 @@
     'scoreboard'
     'cards';
   grid-template-columns: 1fr;
-  justify-items: center;
 
   @include breakpoint-at-least(large) {
     grid-template-areas:
       'instructions scoreboard'
       'cards cards';
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
     row-gap: 50px;
   }
 }

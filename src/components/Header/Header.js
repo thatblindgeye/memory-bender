@@ -3,7 +3,7 @@ import Accessibility from '../Accessibility/Accessibility';
 
 export default function Header({ theme, toggleEvent }) {
   return (
-    <header className={'l-header u-elevation--04dp'}>
+    <header className={'l-header u-elevation--01dp'}>
       <Accessibility
         iconClasses='c-switch__icon c-switch__icon--base'
         theme={theme}
