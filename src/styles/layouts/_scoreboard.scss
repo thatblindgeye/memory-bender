@@ -1,0 +1,21 @@
+@use '../abstracts/' as *;
+
+.l-scoreboard {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0 20px;
+  max-width: 20rem;
+  width: 100%;
+
+  @include breakpoint-at-least(medium) {
+    max-width: 25rem;
+  }
+
+  @include breakpoint-at-least(large) {
+    align-items: flex-end;
+    justify-content: center;
+    justify-self: end;
+    margin: 0;
+  }
+}

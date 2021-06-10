@@ -1,0 +1,15 @@
+.c-game-over {
+  &__header {
+    margin-top: 25px;
+    text-align: center;
+  }
+
+  &__info {
+    margin: 20px 0 50px;
+  }
+
+  &__button {
+    margin: auto;
+    max-width: max-content;
+  }
+}

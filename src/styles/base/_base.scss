@@ -15,6 +15,15 @@ body {
   min-height: 100vh;
 }
 
+main {
+  min-height: 100vh;
+  padding: 10px;
+
+  @include breakpoint-at-least(large) {
+    padding: 25px 40px;
+  }
+}
+
 /**
   * Removes default focus styles for elements 
   * (MANUALLY ADD FOCUS STYLES)
@@ -32,6 +41,10 @@ h4,
 h5,
 h6 {
   margin: 0;
+}
+
+p {
+  margin: 8px 0;
 }
 
 %clickable {

@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+
+.c-instructions {
+  grid-area: instructions;
+}
+
+.l-scoreboard {
+  grid-area: scoreboard;
+}
+
+.l-card-container {
+  grid-area: cards;
+}
+
+.l-gameboard {
+  display: grid;
+  grid-template-areas:
+    'instructions'
+    'scoreboard'
+    'cards';
+  grid-template-columns: 1fr;
+  justify-items: center;
+
+  @include breakpoint-at-least(large) {
+    grid-template-areas:
+      'instructions scoreboard'
+      'cards cards';
+    grid-template-columns: auto auto;
+    row-gap: 50px;
+  }
+}

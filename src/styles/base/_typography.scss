@@ -8,5 +8,62 @@ body {
 }
 
 .c-app-logo {
-  font-size: 2.5rem;
+  &__title {
+    font-size: 2rem;
+    text-align: center;
+
+    @include breakpoint-at-least(small) {
+      font-size: 2.75rem;
+    }
+
+    @include breakpoint-at-least(medium) {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.c-instructions {
+  &__header {
+    font-size: 1.25rem;
+
+    @include breakpoint-at-least(medium) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__info {
+    font-size: 1rem;
+
+    @include breakpoint-at-least(medium) {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.c-scoreboard__score {
+  font-size: 1.25rem;
+
+  @include breakpoint-at-least(medium) {
+    font-size: 1.75rem;
+  }
+}
+
+.c-card__caption {
+  @include font-properties(0.08rem, 0.12rem);
+  font-size: 1.125rem;
+
+  @include breakpoint-at-least(medium) {
+    font-size: 1.5rem;
+  }
+}
+
+.c-footer {
+  &__credits,
+  &__links {
+    font-size: 0.9rem;
+
+    @include breakpoint-at-least(medium) {
+      font-size: 1.1rem;
+    }
+  }
 }

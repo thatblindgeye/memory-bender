@@ -1,5 +1,9 @@
+@use '../abstracts' as *;
+
 .l-footer {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 75px;
   padding: 20px 15px;
 }

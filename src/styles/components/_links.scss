@@ -1,18 +1,15 @@
 @use '../abstracts/' as *;
 
 .c-link {
-  border: 1px solid transparent;
   color: var(--color-text-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  transition: border 200ms linear;
-  width: max-content;
 
-  &:focus,
   &:hover {
-    border-bottom: 1px solid var(--color-border-primary);
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 1px solid var(--color-link-border);
+    outline-offset: 2px;
   }
 
   &--download {
@@ -30,6 +27,13 @@
     @include breakpoint-at-least(small) {
       margin: 0 0 0 25px;
     }
+  }
+
+  &--image {
+    @extend .c-link;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
   &--skip {

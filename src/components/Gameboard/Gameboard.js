@@ -113,8 +113,8 @@ export default function Gameboard() {
   ) : (
     <div className='l-gameboard'>
       <div className='c-instructions'>
-        <h2>Instructions</h2>
-        <p>
+        <h2 className='c-instructions__header'>Instructions</h2>
+        <p className='c-instructions__info'>
           Each round you must click a character card that you have not yet
           clicked. After every correct guess, the cards will be shuffled and the
           page will scroll to the top of the gameboard.

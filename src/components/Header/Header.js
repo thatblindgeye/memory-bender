@@ -9,7 +9,9 @@ export default function Header({ theme, toggleEvent }) {
         theme={theme}
         toggleEvent={toggleEvent}
       />
-      <div className='c-app-logo'>Memory-bender</div>
+      <div className='c-app-logo'>
+        <h1 className='c-app-logo__title'>Memory-bender</h1>
+      </div>
     </header>
   );
 }
