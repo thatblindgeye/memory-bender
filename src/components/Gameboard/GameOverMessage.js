@@ -13,12 +13,12 @@ export default function GameOverMessage({
 
   const win = {
     header: 'Congratulations',
-    info: 'You have restored balance to the world, or at least beat the game. Click the button below to truly prove your mastery over memory-bending.',
+    info: 'You have restored balance to the world, or at least beat the game. But can you prove you are truly a memory-bending master?',
   };
 
   const loss = {
     header: 'Game Over',
-    info: `Your final score was ${currentScore}. That's rough, buddy. Click the button below to try and regain your honor.`,
+    info: `Your final score was ${currentScore}. That's rough, buddy. Want to try and regain your honor?`,
   };
 
   const message = currentScore === maxScore ? win : loss;
@@ -33,7 +33,7 @@ export default function GameOverMessage({
         onClick={clickEvent}
         ref={playAgainButton}
       >
-        Play again?
+        Click to play again
       </button>
     </div>
   );

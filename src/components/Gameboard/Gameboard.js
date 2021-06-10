@@ -40,8 +40,6 @@ export default function Gameboard() {
     if (currentScore > 0) {
       const scoreboardOffset = scoreboardContainer.current.offsetTop;
       document.documentElement.scrollTo(0, scoreboardOffset);
-      // scoreboardContainer.current.focus();
-      console.log(cardsContainer.current.children[0]);
       cardsContainer.current.children[0].focus();
     }
   }, [currentScore]);
@@ -114,34 +112,36 @@ export default function Gameboard() {
           />
         ) : null}
       </div>
-      {!gameOver ? (
-        <div className='l-gameboard'>
-          <div className='c-instructions'>
-            <h2 className='c-instructions__header'>Instructions</h2>
-            <p className='c-instructions__info'>
-              Each round you must click a character card that you have not yet
-              clicked. After every correct guess, the cards will be shuffled and
-              the page will scroll to the top of the gameboard.
-            </p>
-          </div>
-          <div className='l-scoreboard-container' ref={scoreboardContainer}>
-            <Scoreboard currentScore={currentScore} highScore={highScore} />
-          </div>
-          <div className='l-card-container' ref={cardsContainer}>
-            {cards.map((card) => {
-              return (
-                <Card
-                  key={card.id}
-                  id={card.id}
-                  url={card.url}
-                  name={card.name}
-                  clickEvent={handleCardClick}
-                />
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
+      <div className='l-gameboard' aria-live='polite'>
+        {!gameOver ? (
+          <>
+            <div className='c-instructions'>
+              <h2 className='c-instructions__header'>Instructions</h2>
+              <p className='c-instructions__info'>
+                Each round you must click a character card that you have not yet
+                clicked. After every correct guess, the cards will be shuffled
+                and the page will scroll to the top of the gameboard.
+              </p>
+            </div>
+            <div className='l-scoreboard-container' ref={scoreboardContainer}>
+              <Scoreboard currentScore={currentScore} highScore={highScore} />
+            </div>
+            <div className='l-card-container' ref={cardsContainer}>
+              {cards.map((card) => {
+                return (
+                  <Card
+                    key={card.id}
+                    id={card.id}
+                    url={card.url}
+                    name={card.name}
+                    clickEvent={handleCardClick}
+                  />
+                );
+              })}
+            </div>
+          </>
+        ) : null}
+      </div>
     </main>
   );
 }
