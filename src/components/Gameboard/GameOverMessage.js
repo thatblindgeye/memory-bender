@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function GameOverMessage({
   currentScore,
   maxScore,
   clickEvent,
 }) {
+  const playAgainButton = useRef(null);
   useEffect(() => {
     document.documentElement.scrollTo(0, 0);
+    playAgainButton.current.focus();
   }, []);
 
   const win = {
@@ -29,6 +31,7 @@ export default function GameOverMessage({
         type='button'
         className='c-button--contained c-game-over__button'
         onClick={clickEvent}
+        ref={playAgainButton}
       >
         Play again?
       </button>

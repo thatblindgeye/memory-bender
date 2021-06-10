@@ -35,11 +35,14 @@ export default function Gameboard() {
    * navigate with the kayboard otherwise.
    */
   const scoreboardContainer = useRef(null);
+  const cardsContainer = useRef(null);
   useEffect(() => {
     if (currentScore > 0) {
       const scoreboardOffset = scoreboardContainer.current.offsetTop;
       document.documentElement.scrollTo(0, scoreboardOffset);
-      scoreboardContainer.current.focus();
+      // scoreboardContainer.current.focus();
+      console.log(cardsContainer.current.children[0]);
+      cardsContainer.current.children[0].focus();
     }
   }, [currentScore]);
 
@@ -123,7 +126,7 @@ export default function Gameboard() {
       >
         <Scoreboard currentScore={currentScore} highScore={highScore} />
       </div>
-      <div className='l-card-container' aria-atomic='true'>
+      <div className='l-card-container' ref={cardsContainer}>
         {cards.map((card) => {
           return (
             <Card
