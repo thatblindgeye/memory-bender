@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/memory-bender/static/css/main.6399f58f.chunk.css",
-    "main.js": "/memory-bender/static/js/main.10201e25.chunk.js",
-    "main.js.map": "/memory-bender/static/js/main.10201e25.chunk.js.map",
+    "main.css": "/memory-bender/static/css/main.553b987b.chunk.css",
+    "main.js": "/memory-bender/static/js/main.591def0e.chunk.js",
+    "main.js.map": "/memory-bender/static/js/main.591def0e.chunk.js.map",
     "runtime-main.js": "/memory-bender/static/js/runtime-main.da9c626c.js",
     "runtime-main.js.map": "/memory-bender/static/js/runtime-main.da9c626c.js.map",
     "static/js/2.320de143.chunk.js": "/memory-bender/static/js/2.320de143.chunk.js",
     "static/js/2.320de143.chunk.js.map": "/memory-bender/static/js/2.320de143.chunk.js.map",
     "index.html": "/memory-bender/index.html",
-    "static/css/main.6399f58f.chunk.css.map": "/memory-bender/static/css/main.6399f58f.chunk.css.map",
+    "static/css/main.553b987b.chunk.css.map": "/memory-bender/static/css/main.553b987b.chunk.css.map",
     "static/js/2.320de143.chunk.js.LICENSE.txt": "/memory-bender/static/js/2.320de143.chunk.js.LICENSE.txt",
     "static/media/Aang.jpg": "/memory-bender/static/media/Aang.32816200.jpg",
     "static/media/Amon.jpg": "/memory-bender/static/media/Amon.e792a36a.jpg",
@@ -41,7 +41,7 @@
   "entrypoints": [
     "static/js/runtime-main.da9c626c.js",
     "static/js/2.320de143.chunk.js",
-    "static/css/main.6399f58f.chunk.css",
-    "static/js/main.10201e25.chunk.js"
+    "static/css/main.553b987b.chunk.css",
+    "static/js/main.591def0e.chunk.js"
   ]
 }
