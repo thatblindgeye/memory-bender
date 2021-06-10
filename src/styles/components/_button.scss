@@ -15,7 +15,7 @@
     background-color: var(--color-button-contained);
     border: 2px solid transparent;
     color: var(--color-text-inverted);
-    transition: transform 200ms linear, background-color 200ms linear;
+    transition: background-color 200ms linear;
 
     &:hover,
     &:focus {
@@ -23,9 +23,8 @@
     }
 
     &:focus {
-      box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-        0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-      transform: scale(1.05);
+      outline: 2px ridge var(--color-border-contained-button);
+      outline-offset: 2px;
     }
   }
 

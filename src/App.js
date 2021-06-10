@@ -38,7 +38,7 @@ export default function App() {
   return (
     <>
       <Header theme={theme} toggleEvent={handleThemeToggle} />
-      <main aria-live='polite' aria-atomic='true'>
+      <main aria-live='polite'>
         <Gameboard />
       </main>
       <footer className='l-footer'>
