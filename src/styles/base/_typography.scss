@@ -45,10 +45,10 @@ body {
 }
 
 .c-scoreboard__score {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
 
   @include breakpoint-at-least(medium) {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -58,6 +58,29 @@ body {
 
   @include breakpoint-at-least(medium) {
     font-size: 1.5rem;
+  }
+}
+
+.c-game-over {
+  &__header {
+    font-size: 1.5rem;
+
+    @include breakpoint-at-least(small) {
+      font-size: 2rem;
+    }
+
+    @include breakpoint-at-least(large) {
+      font-size: 3em;
+    }
+  }
+
+  &__info {
+    font-size: 1rem;
+    text-align: center;
+
+    @include breakpoint-at-least(small) {
+      font-size: 1.125rem;
+    }
   }
 }
 
