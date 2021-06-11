@@ -8,7 +8,7 @@
 
 "Long ago, the cards lived together in harmony. Then, everything changed when the memory game was created. Only you, master of memory, can defeat it."
 
-Test how good your memory is with this memory card game, featuring characters from the animated television shows [Avatar: The Last Airbender](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender) and [The Legend of Korra](https://en.wikipedia.org/wiki/The_Legend_of_Korra).
+Test how good your memory is with [Memory-bender](https://thatblindgeye.github.io/memory-bender/), a memory based card game, featuring characters from the animated television shows [Avatar: The Last Airbender](https://en.wikipedia.org/wiki/Avatar:_The_Last_Airbender) and [The Legend of Korra](https://en.wikipedia.org/wiki/The_Legend_of_Korra).
 
 Credit for all of the images used in this project goes to [The Avatar Wiki](https://avatar.fandom.com/wiki/Avatar_Wiki).
 
