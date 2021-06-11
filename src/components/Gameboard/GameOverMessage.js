@@ -33,7 +33,7 @@ export default function GameOverMessage({
         onClick={clickEvent}
         ref={playAgainButton}
       >
-        Click to play again
+        Play again
       </button>
     </div>
   );
