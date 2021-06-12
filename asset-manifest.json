@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/memory-bender/static/css/main.a171a70c.chunk.css",
-    "main.js": "/memory-bender/static/js/main.759cd436.chunk.js",
-    "main.js.map": "/memory-bender/static/js/main.759cd436.chunk.js.map",
+    "main.js": "/memory-bender/static/js/main.a0cd8511.chunk.js",
+    "main.js.map": "/memory-bender/static/js/main.a0cd8511.chunk.js.map",
     "runtime-main.js": "/memory-bender/static/js/runtime-main.da9c626c.js",
     "runtime-main.js.map": "/memory-bender/static/js/runtime-main.da9c626c.js.map",
     "static/js/2.320de143.chunk.js": "/memory-bender/static/js/2.320de143.chunk.js",
@@ -17,6 +17,7 @@
     "static/media/Azula.jpg": "/memory-bender/static/media/Azula.88b83077.jpg",
     "static/media/Bolin.jpg": "/memory-bender/static/media/Bolin.72e896c1.jpg",
     "static/media/Cabbage-Merchant.jpg": "/memory-bender/static/media/Cabbage-Merchant.8c28ca5d.jpg",
+    "static/media/Foaming-Mouth-Guy.jpg": "/memory-bender/static/media/Foaming-Mouth-Guy.56854b92.jpg",
     "static/media/Iroh.jpg": "/memory-bender/static/media/Iroh.ff023f86.jpg",
     "static/media/Katara.jpg": "/memory-bender/static/media/Katara.d8773bee.jpg",
     "static/media/Korra.jpg": "/memory-bender/static/media/Korra.6b0a840e.jpg",
@@ -42,6 +43,6 @@
     "static/js/runtime-main.da9c626c.js",
     "static/js/2.320de143.chunk.js",
     "static/css/main.a171a70c.chunk.css",
-    "static/js/main.759cd436.chunk.js"
+    "static/js/main.a0cd8511.chunk.js"
   ]
 }
